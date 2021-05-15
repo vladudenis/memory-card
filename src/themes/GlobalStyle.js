@@ -13,14 +13,12 @@ export const GlobalStyle = createGlobalStyle`
    html {
        font-size: 62.5%;
        line-height: 1.6;
-       /* Footer support */
-       position: relative;
        min-height: 100%;
    }
 
    body {
-        background: ${({ theme }) => theme.body};
-        color: ${({ theme }) => theme.text};
+        background: ${({ theme }) => theme.primaryColor};
+        color: ${({ theme }) => theme.secondaryColor};
         font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
         transition: all 0.50s linear;
         font-size: 1.6rem;

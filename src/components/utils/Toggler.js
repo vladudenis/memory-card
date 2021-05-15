@@ -15,9 +15,9 @@ Toggler.propTypes = {
 };
 
 const Button = styled.button`
-    background: ${({ theme }) => theme.background};
-    border: 2px solid ${({ theme }) => theme.toggleBorder};
-    color: ${({ theme }) => theme.body};
+    background: ${({ theme }) => theme.secondaryColor};
+    border: 2px solid ${({ theme }) => theme.primaryColor};
+    color: ${({ theme }) => theme.primaryColor};
     border-radius: 30px;
     cursor: pointer;
     font-size:0.8rem;
