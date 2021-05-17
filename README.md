@@ -10,5 +10,5 @@ I'm going to use League of Legends champions on my cards because Pokemons seem t
 
 Another goal I want to complete with this project is the creation of a light/dark mode toggle button. Having learned a lot about the styled-components library, I'm also going to make as much use of it as possible.
 
-## Edits
+## Hindsight
 ...
