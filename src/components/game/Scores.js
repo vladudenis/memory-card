@@ -6,16 +6,27 @@ const Scores = ({ level, progress }) => {
     const [highscore, setHighscore] = useState(0);
 
     useEffect(() => {
-        setScore(score + 5);
-        if(highscore < score){
-            setHighscore(score);
+        if(progress == 0){
+            setScore(0);
+        }else{
+            const newScore = score + 5;
+            if(highscore < newScore){
+                setHighscore(newScore);
+            }
+            setScore(newScore);
         }
     }, [progress]);
 
     useEffect(() => {
-        setScore(score + 10);
-        if(highscore < score){
-            setHighscore(score);
+        if(level == 1){
+            setScore(0);
+            setHighscore(0);
+        }else{
+            const newScore = score + 15;
+            if(highscore < newScore){
+                setHighscore(newScore);
+            }
+            setScore(newScore);
         }
     }, [level]);
 

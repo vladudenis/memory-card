@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
-import { useMyFetch } from "./useFetch";
+import { fetchPokemons, shuffleArray } from "../utils/util";
 import styled from "styled-components"
 //uuidv4
 
 const CardCollection = ({ onClick, level, progress }) => {
-    const champions = useMyFetch(level);
-    const [cardSequence, setCardSequence] = useState(champions);
+    const [cardSequence, setCardSequence] = useState([]);
 
     useEffect(() => {
-        const newCardSequence = cardSequence; //shuffle here
-        setCardSequence(newCardSequence);
+        fetchPokemons(level).then((pokemons) =>
+          setCardSequence(shuffleArray(pokemons))
+        )
+      }, [level])
+
+    useEffect(() => {
+        setCardSequence(shuffleArray(cardSequence));
     }, [progress]);
 
     //add conditional return to incorporate loading and error
 
     return(
         <CardCollectionWrapper>
-            {champions.map((champion) => {
+            {cardSequence.map((pokemon) => {
                 return(
-                    <Card onClick={onClick} champion={champion} />
+                    <Card key={pokemon.id} onClick={onClick} pokemon={pokemon} />
                 );
             })}
         </CardCollectionWrapper>

@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const Card = ({ onClick, champion }) => {
+const Card = ({ onClick, pokemon }) => {
 
     return(
         <CardWrapper onClick={onClick}>
-            <img src={champion.src} alt={champion.name} width="400px"></img>
-            <p>{champion.name}</p>
+            <img src={pokemon.src} alt={pokemon.name} width="400px"></img>
+            <p>{pokemon.name}</p>
         </CardWrapper>
     );
 };
