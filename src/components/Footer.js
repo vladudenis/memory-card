@@ -15,7 +15,7 @@ const Footer = () => {
 
 const FooterWrapper = styled.footer`
     padding: 5px;
-    position: absolute;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;

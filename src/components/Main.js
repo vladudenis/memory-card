@@ -18,7 +18,7 @@ const Main = () => {
             setClickedCards((prevState) => [...prevState, cardName]);
             const currentProgress = progress + 1;
             setProgress(currentProgress);
-            console.log("Progress Made", currentProgress + "/" + (level + 5)); //new line
+            console.log("Progress Made", currentProgress + "/" + (level + 5));
             if(currentProgress == level + 5){
                 setLevel(level + 1);
                 setProgress(0);

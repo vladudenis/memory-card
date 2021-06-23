@@ -2,22 +2,24 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import { fetchPokemons, shuffleArray } from "../utils/util";
 import styled from "styled-components"
-//uuidv4
+import { trackPromise } from 'react-promise-tracker'
+import { LoadingIndicator } from "../utils/util";
 
 const CardCollection = ({ onClick, level, progress }) => {
     const [cardSequence, setCardSequence] = useState([]);
 
     useEffect(() => {
-        fetchPokemons(level).then((pokemons) =>
-          setCardSequence(shuffleArray(pokemons))
-        )
-      }, [level])
+        trackPromise(
+            fetchPokemons(level).then((pokemons) =>
+                setCardSequence(pokemons)
+        ));
+        console.log(cardSequence);
+    }, [level])
 
     useEffect(() => {
         setCardSequence(shuffleArray(cardSequence));
+        console.log("Shuffled");
     }, [progress]);
-
-    //add conditional return to incorporate loading and error
 
     return(
         <CardCollectionWrapper>
@@ -26,15 +28,15 @@ const CardCollection = ({ onClick, level, progress }) => {
                     <Card key={pokemon.id} onClick={onClick} pokemon={pokemon} />
                 );
             })}
+            <LoadingIndicator/>
         </CardCollectionWrapper>
     );
 };
 
 const CardCollectionWrapper = styled.div`
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     margin: 20px 0;
 `;
 
