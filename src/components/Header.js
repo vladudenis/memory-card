@@ -16,6 +16,7 @@ const Header = ({theme, themeToggler}) => {
 };
 
 const HeaderWrapper = styled.header`
+    height: 8vh;
     display: flex;
     justify-content: space-between;
     padding: 20px;

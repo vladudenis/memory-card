@@ -22,6 +22,8 @@ const Button = styled.button`
     cursor: pointer;
     font-size:0.8rem;
     padding: 0.6rem;
+    width: 55px;
+    height: 35px;
 `;
 
 export default Toggler;

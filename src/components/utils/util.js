@@ -1,7 +1,4 @@
 import axios from "axios";
-import { usePromiseTracker } from "react-promise-tracker";
-import Loader from 'react-loader-spinner';
-import styled from "styled-components"
 
 const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1)
@@ -36,22 +33,3 @@ export const fetchPokemons = async (level) => {
 
     return pokemons;
 };
-
-export const LoadingIndicator = () => {
-  const { promiseInProgress } = usePromiseTracker();
-
-  return (
-    promiseInProgress &&
-    <SpinnerWrapper>
-      <Loader type="ThreeDots" color="#2BAD60" height="100" width="100" />
-    </SpinnerWrapper>
-  );
-}
-
-const SpinnerWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100;
-`;

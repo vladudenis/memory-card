@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CardCollection from "./game/CardCollection";
 import Scores from "./game/Scores";
 import styled from "styled-components"
+import LoadingIndicator from "./utils/LoadingSpinner";
 
 const Main = () => {
     const [level, setLevel] = useState(1);
@@ -30,12 +31,14 @@ const Main = () => {
     return(
         <MainWrapper>
             <Scores level={level} progress={progress} />
+            <LoadingIndicator/>
             <CardCollection onClick={madeProgress} level={level} progress={progress} />
         </MainWrapper>
     );
 };
 
 const MainWrapper = styled.main`
+    min-height: 90vh;
     display: grid;
     justify-content: center;
     margin: 20px;

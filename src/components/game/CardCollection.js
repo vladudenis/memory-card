@@ -3,7 +3,6 @@ import Card from "./Card";
 import { fetchPokemons, shuffleArray } from "../utils/util";
 import styled from "styled-components"
 import { trackPromise } from 'react-promise-tracker'
-import { LoadingIndicator } from "../utils/util";
 
 const CardCollection = ({ onClick, level, progress }) => {
     const [cardSequence, setCardSequence] = useState([]);
@@ -28,7 +27,6 @@ const CardCollection = ({ onClick, level, progress }) => {
                     <Card key={pokemon.id} onClick={onClick} pokemon={pokemon} />
                 );
             })}
-            <LoadingIndicator/>
         </CardCollectionWrapper>
     );
 };
@@ -36,6 +34,7 @@ const CardCollection = ({ onClick, level, progress }) => {
 const CardCollectionWrapper = styled.div`
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     margin: 20px 0;
 `;
