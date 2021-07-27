@@ -26,6 +26,9 @@ const CardWrapper = styled.div`
     & p{
         text-align: center;
     }
+    &:hover{
+        cursor: pointer;
+    }
 `;
 
 export default Card;

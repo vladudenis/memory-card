@@ -8,7 +8,6 @@ const Main = () => {
     const [level, setLevel] = useState(1);
     const [progress, setProgress] = useState(0);
     const [clickedCards, setClickedCards] = useState([]);
-    //maybe save the array of cards on level up to avoid semi-duplicate rounds
 
     const madeProgress = (e) => {
         const cardName = e.target.parentNode.lastChild.textContent;
@@ -25,6 +24,13 @@ const Main = () => {
                 setLevel(level + 1);
                 setProgress(0);
                 setClickedCards([]);
+                if(level === 100){
+                    return( //show the winner a pikachu picture
+                        <MainWrapper>
+                            <Scores level={100} progress={0} />
+                        </MainWrapper>
+                    );
+                }
             }
         }
     }
