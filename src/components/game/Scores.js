@@ -1,30 +1,43 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components"
+import styled from "styled-components";
 
 const Scores = ({ level, progress }) => {
     const [score, setScore] = useState(0);
     const [highscore, setHighscore] = useState(0);
 
-    useEffect(() => {
+    useEffect(() => { //+5 score on every correct card click
         if(progress == 0){
             setScore(0);
+            const lastHighscore = localStorage.getItem("highscore");
+            if(lastHighscore){
+                setHighscore(lastHighscore);
+            }else{
+                setHighscore(0);
+            }
         }else{
             const newScore = score + 5;
             if(highscore < newScore){
                 setHighscore(newScore);
+                localStorage.setItem("highscore", newScore);
             }
             setScore(newScore);
         }
     }, [progress]);
 
-    useEffect(() => {
+    useEffect(() => { //+15 score on every level up
         if(level == 1){
             setScore(0);
-            setHighscore(0);
+            const lastHighscore = localStorage.getItem("highscore");
+            if(lastHighscore){
+                setHighscore(lastHighscore);
+            }else{
+                setHighscore(0);
+            }
         }else{
             const newScore = score + 15;
             if(highscore < newScore){
                 setHighscore(newScore);
+                localStorage.setItem("highscore", newScore);
             }
             setScore(newScore);
         }

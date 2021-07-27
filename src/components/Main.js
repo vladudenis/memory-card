@@ -8,6 +8,7 @@ const Main = () => {
     const [level, setLevel] = useState(1);
     const [progress, setProgress] = useState(0);
     const [clickedCards, setClickedCards] = useState([]);
+    //maybe save the array of cards on level up to avoid semi-duplicate rounds
 
     const madeProgress = (e) => {
         const cardName = e.target.parentNode.lastChild.textContent;
@@ -20,12 +21,12 @@ const Main = () => {
             const currentProgress = progress + 1;
             setProgress(currentProgress);
             console.log("Progress Made", currentProgress + "/" + (level + 5));
-            if(currentProgress == level + 5){
+            if(currentProgress == level + 5){ //level one has a set of 6 cards
                 setLevel(level + 1);
                 setProgress(0);
                 setClickedCards([]);
             }
-        } 
+        }
     }
 
     return(
