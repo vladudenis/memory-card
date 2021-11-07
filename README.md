@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a pokemon-themed memory game. The point of the game is not to win, but achieve a highscore that surpasses your old one and that of your friends. 
+This is a pokemon-themed memory game. The point of the game is not to "win", as there is no official winning condition. Rather, you should aim to achieve a highscore that surpasses your old one and that of your friends. 
 
 That being said, there is an upper bound that I imposed. The maximum level that can be reached is 100, at which point one would have to correctly click ONCE on 106 different pokemon cards without making a mistake.
 
